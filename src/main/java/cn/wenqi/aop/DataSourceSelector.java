@@ -21,7 +21,7 @@ public class DataSourceSelector {
 
     private static final Log log= LogFactory.getLog(DataSourceSelector.class);
 
-    @Around("execution(* cn.wenqi.service.impl.*.*(..))")
+    @Around("@annotation(cn.wenqi.annocation.TargetDataSource)")
     public Object proceed(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
         Method targetMethod = methodSignature.getMethod();

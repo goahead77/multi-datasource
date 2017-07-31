@@ -21,15 +21,15 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
 
-    @Transactional
     @TargetDataSource("master")
+    @Transactional
     @Override
     public Student addStudent(Student student) {
         studentMapper.addStudent(student);
         return  student;
     }
 
-    @TargetDataSource("slave")
+    @TargetDataSource("master")
     @Override
     @Transactional(readOnly = true)
     public List<Student> queryList() {
