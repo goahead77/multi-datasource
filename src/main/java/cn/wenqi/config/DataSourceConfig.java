@@ -1,5 +1,6 @@
 package cn.wenqi.config;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceBuilder;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
  * @author wenqi
  */
 @Configuration
+@MapperScan("cn.wenqi.mapper")
 public class DataSourceConfig {
 
     @Bean(name = "masterDataSource")

@@ -12,17 +12,11 @@ import java.util.Date;
  */
 @Setter
 @Getter
-@Entity
-@Table(name = "t_student")
 @ToString
 public class Student {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
     private String stuName;
-
-    @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 }
