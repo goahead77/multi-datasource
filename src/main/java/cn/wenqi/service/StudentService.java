@@ -1,5 +1,6 @@
 package cn.wenqi.service;
 
+import cn.wenqi.annocation.TargetDataSource;
 import cn.wenqi.dto.Student;
 
 import java.util.List;
@@ -9,7 +10,9 @@ import java.util.List;
  */
 public interface StudentService {
 
+    @TargetDataSource("master")
     Student addStudent(Student student);
 
+    @TargetDataSource("slave")
     List<Student> queryList();
 }

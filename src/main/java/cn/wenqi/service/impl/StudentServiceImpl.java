@@ -6,6 +6,7 @@ import cn.wenqi.mapper.StudentMapper;
 import cn.wenqi.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class StudentServiceImpl implements StudentService {
     private StudentMapper studentMapper;
 
 
+    @Transactional
     @TargetDataSource("master")
     @Override
     public Student addStudent(Student student) {
@@ -29,6 +31,7 @@ public class StudentServiceImpl implements StudentService {
 
     @TargetDataSource("slave")
     @Override
+    @Transactional(readOnly = true)
     public List<Student> queryList() {
         return studentMapper.selectAllStudent();
     }
