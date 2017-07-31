@@ -1,4 +1,4 @@
-package cn.wenqi.dto;
+package cn.wenqi.common.dto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,9 +1,9 @@
 package cn.wenqi.service.impl;
 
-import cn.wenqi.annocation.TargetDataSource;
-import cn.wenqi.dto.Student;
-import cn.wenqi.repository.StudentRepository;
+import cn.wenqi.common.dto.Student;
+import cn.wenqi.master.repository.StudentWRepository;
 import cn.wenqi.service.StudentService;
+import cn.wenqi.slave.repository.StudentRRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,18 +16,19 @@ import java.util.List;
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
-    private StudentRepository studentRepository;
+    private StudentWRepository studentWRepository;
+
+    @Autowired
+    private StudentRRepository studentRRepository;
 
 
-    @TargetDataSource("master")
     @Override
     public Student addStudent(Student student) {
-        return studentRepository.save(student);
+        return studentWRepository.save(student);
     }
 
-    @TargetDataSource("slave")
     @Override
     public List<Student> queryList() {
-        return studentRepository.findAll();
+        return studentRRepository.findAll();
     }
 }

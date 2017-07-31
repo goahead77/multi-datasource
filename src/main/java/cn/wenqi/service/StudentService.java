@@ -1,6 +1,6 @@
 package cn.wenqi.service;
 
-import cn.wenqi.dto.Student;
+import cn.wenqi.common.dto.Student;
 
 import java.util.List;
 

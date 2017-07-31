@@ -1,8 +1,8 @@
 spring:
   jpa:
-    hibernate:
-      ddl-auto: create
     show-sql: true
+    properties:
+      hibernate.hbm2ddl.auto: update
   datasource:
     master:
       username: diyfintech
